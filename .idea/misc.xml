@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activitty_input_data.xml" value="0.10925925925925926" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_daftar_akun.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_detail_siswa.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_edit_profil.xml" value="0.10925925925925926" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_edit_siswa.xml" value="0.10925925925925926" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_login_akun.xml" value="0.10925925925925926" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_menu_hasil_siswa.xml" value="0.2" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_menu_input_data.xml" value="0.10925925925925926" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_tambah_siswa.xml" value="0.264" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/card_menu_layout.xml" value="0.12082066869300911" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/daftar_siswa.xml" value="0.24895833333333334" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_catatan.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_hasil_catatan.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_hasil_pengetahuan.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_nilai_rapot.xml" value="0.264" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_pengetahuan.xml" value="0.1" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/list_siswa.xml" value="0.12132725430597771" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/menu/menu.xml" value="0.13425925925925927" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/menu/popup.xml" value="0.13425925925925927" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
