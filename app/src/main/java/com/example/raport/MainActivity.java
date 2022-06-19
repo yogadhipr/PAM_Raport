@@ -55,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         judul.add("Daftar Siswa");
         judul.add("Input Nilai");
         judul.add("Hasil Raport");
+
         // Set tampilan gambar menu
         gambar.add(R.drawable.ic_baseline_edit_24);
         gambar.add(R.drawable.ic_baseline_person_24);
@@ -67,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(layoutManager);
         rv.setAdapter(adapter);
 
-        uid = fAuth.getCurrentUser().getUid(); // Get ID user login
-        DocumentReference dr = fStore.collection("akun").document(uid);
+        //uid = fAuth.getCurrentUser().getUid(); // Get ID user login
+        DocumentReference dr = fStore.collection("akun").document("uid");
         dr.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {

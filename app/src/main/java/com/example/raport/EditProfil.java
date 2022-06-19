@@ -51,9 +51,9 @@ public class EditProfil extends AppCompatActivity {
         pb = findViewById(R.id.pbEditProfil);
         fStore = FirebaseFirestore.getInstance(); // Get Firebase Firestore Database
         fAuth = FirebaseAuth.getInstance(); // Get Firebase Auth
-        String uid = fAuth.getCurrentUser().getUid(); // Get ID dari user yang login
-        DocumentReference dref = fStore.collection("akun").document(uid);
 
+        //String uid = fAuth.getCurrentUser().getUid(); // Get ID dari user yang login
+        DocumentReference dref = fStore.collection("akun").document("uid");
         dref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -85,8 +85,8 @@ public class EditProfil extends AppCompatActivity {
 
     private void simpanData(){
 
-        String uid = FirebaseAuth.getInstance().getUid();
-        DocumentReference dr = fStore.collection("akun").document(uid);
+        //String uid = FirebaseAuth.getInstance().getUid();
+        DocumentReference dr = fStore.collection("akun").document("");
         Map<String,Object> updateAkun = new HashMap<>();
         // Mengisi data dari string yang didapat
         updateAkun.put("nama",nm);

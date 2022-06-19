@@ -26,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class DaftarAkun extends AppCompatActivity {
 
@@ -92,7 +93,7 @@ public class DaftarAkun extends AppCompatActivity {
         });
     }
     private void submitData(){
-        uid = fAuth.getCurrentUser().getUid(); // Get ID dari user terdaftar
+        uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid(); // Get ID dari user terdaftar
         DocumentReference documentReference = fStore.collection("akun").document(uid);
         Map<String,Object> akun = new HashMap<>();
         akun.put("nama",nama);
@@ -102,7 +103,7 @@ public class DaftarAkun extends AppCompatActivity {
         documentReference.set(akun).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Log.d(TAG, "Akun Telah Ditambah! \n UserID : "+uid);
+                Log.d(TAG, "Akun Telah Ditambah! \n UserID : "+ uid);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

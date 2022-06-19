@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
-        android:text="Login StuWatch"
+        android:text="Login"
         android:textAlignment="center"
         android:textSize="26dp"
         app:layout_constraintBottom_toBottomOf="parent"
