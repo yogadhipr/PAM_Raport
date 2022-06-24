@@ -12,25 +12,22 @@ public class MenuInputData extends AppCompatActivity {
 
     TabLayout tl;
     ViewPager2 vp2;
-    AdapterFragmentInput adapter;
+    AdapterInput adapter;
     public static String kode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_input_data);
+        setContentView(R.layout.activity_menu_input);
 
         tl = findViewById(R.id.tabMenuInput);
         vp2 = findViewById(R.id.viewPager);
-        // Set adapter fragment
         FragmentManager fm = getSupportFragmentManager();
-        adapter = new AdapterFragmentInput(fm,getLifecycle());
+        adapter = new AdapterInput(fm,getLifecycle());
         vp2.setAdapter(adapter);
-        Bundle b = getIntent().getExtras(); // Get bundle
-        // Get data string dari bundle
+        Bundle b = getIntent().getExtras();
         kode = b.getString("kd");
 
-        // Set nama tab fragment
         tl.addTab(tl.newTab().setText(R.string.tab_text_1));
         tl.addTab(tl.newTab().setText(R.string.tab_text_3));
 

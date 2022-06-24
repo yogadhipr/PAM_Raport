@@ -19,7 +19,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     List<Integer> gambar;
     LayoutInflater inflater;
 
-    public Adapter(Context c, List<String> jd, List<Integer> gmb){ // Konstruktor Adapter
+    public Adapter(Context c, List<String> jd, List<Integer> gmb){
         this.judul = jd;
         this.gambar = gmb;
         this.inflater = LayoutInflater.from(c);
@@ -29,7 +29,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.card_menu_layout,parent,false);
+        View view = inflater.inflate(R.layout.menu_layout,parent,false);
         return new ViewHolder(view);
     }
 
@@ -53,7 +53,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             judul = itemView.findViewById(R.id.jMenu);
             icon = itemView.findViewById(R.id.imageView);
 
-            // Kondisi jika card diklik
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -63,7 +62,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
                             break;
 
                         case 1:
-                            itemView.getContext().startActivity(new Intent(Adapter.this.inflater.getContext(),DaftarSiswa.class));
+                            itemView.getContext().startActivity(new Intent(Adapter.this.inflater.getContext(), DaftarSiswa.class));
                             break;
 
                         case 2:

@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 
-public class FragmentPengetahuan extends Fragment {
+public class InputNilai extends Fragment {
 
     // Deklarasi variabel
     public static final String TAG = "TAG";
@@ -33,7 +33,7 @@ public class FragmentPengetahuan extends Fragment {
     FloatingActionButton fab;
     TextView tv;
 
-    public FragmentPengetahuan() { // Konstruktor Fragment
+    public InputNilai() { // Konstruktor Fragment
     }
 
     @Override
@@ -45,7 +45,7 @@ public class FragmentPengetahuan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate layout kedalam fragment
-        View v = inflater.inflate(R.layout.fragment_pengetahuan, container, false);
+        View v = inflater.inflate(R.layout.activity_input_nilai, container, false);
         ipa = v.findViewById(R.id.txIPA);
         ips = v.findViewById(R.id.txIPS);
         agama = v.findViewById(R.id.txAgama);

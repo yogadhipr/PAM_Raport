@@ -28,40 +28,37 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class DaftarAkun extends AppCompatActivity {
+public class RegistrasiAkun extends AppCompatActivity {
 
     public static final String TAG = "TAG";
     EditText edEmail,edNama,edPass,edRPass,edAlamat;
     String nama,email,pass,rpass,uid,alamat;
     Button btnDaftar;
-    TextView txGotoLogin;
+    TextView txLogin;
     TextInputLayout mailErr,passErr,namaErr,rpassErr,alamatErr;
-    ProgressBar progressBar;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_akun);
+        setContentView(R.layout.activity_registrasi_akun);
 
-        //Deklarasi id layout dengan variabel
         edEmail = findViewById(R.id.txEmail);
         edNama = findViewById(R.id.txNama);
         edPass = findViewById(R.id.txPass);
         edRPass = findViewById(R.id.txRPass);
         edAlamat = findViewById(R.id.txAlamat);
         btnDaftar = findViewById(R.id.btnDaftar);
-        txGotoLogin = findViewById(R.id.txLogin);
+        txLogin = findViewById(R.id.txLogin);
         mailErr = findViewById(R.id.txEmailErr);
         passErr = findViewById(R.id.txPassErr);
         namaErr = findViewById(R.id.txNamaErr);
         rpassErr = findViewById(R.id.txRPassErr);
         alamatErr = findViewById(R.id.txAlamatErr);
-        progressBar = findViewById(R.id.progressBar);
 
-        fAuth =FirebaseAuth.getInstance(); // Set Firebase Authentication
-        fStore = FirebaseFirestore.getInstance(); // Set Firebase Firestore Database
+        fAuth =FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
 
         btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,9 +68,6 @@ public class DaftarAkun extends AppCompatActivity {
                 nama = edNama.getText().toString();
                 alamat = edAlamat.getText().toString();
                 if (isValidate()){
-                    progressBar.setVisibility(View.VISIBLE); // Set Visibilitas Progress Bar
-
-                    // Register user ke firebase
                     fAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -85,15 +79,22 @@ public class DaftarAkun extends AppCompatActivity {
                                 Toast.makeText(getApplicationContext(),"Akun Gagal Dibuat! \n Kesalahan: "
                                         +task.getException().getMessage(),Toast.LENGTH_LONG).show();
                             }
-                            progressBar.setVisibility(View.GONE);
                         }
                     });
                 }
             }
         });
+        // Jika textview login diklik
+        txLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LoginAkun.class));
+                finish();
+            }
+        });
     }
     private void submitData(){
-        uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid(); // Get ID dari user terdaftar
+        uid = fAuth.getCurrentUser().getUid();// Get ID dari user terdaftar
         DocumentReference documentReference = fStore.collection("akun").document(uid);
         Map<String,Object> akun = new HashMap<>();
         akun.put("nama",nama);
@@ -134,7 +135,7 @@ public class DaftarAkun extends AppCompatActivity {
             rpassErr.setError("Password tidak cocok!");
             return false;
         } else if (pass.length() < 6){
-            passErr.setError("Password minimal 6 karakter!");
+            passErr.setError("Password minimal 5 karakter!");
             return false;
         } else if (alamat.isEmpty()){
             alamatErr.setError("Alamat wajib diisi!");

@@ -33,13 +33,13 @@ public class DaftarSiswa extends AppCompatActivity implements PopupMenu.OnMenuIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_siswa);
+        setContentView(R.layout.activity_list_siswa);
 
-        db = FirebaseDatabase.getInstance().getReference();
+        db = FirebaseDatabase.getInstance().getReference(); // Set Firebase Realtime Database
         db.child("siswa").orderByChild("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot ds : snapshot.getChildren()) { // Get data dari children database yang dituju
+                for (DataSnapshot ds : snapshot.getChildren()){ // Get data dari children database yang dituju
                     Siswa s = ds.getValue(Siswa.class);
                     s.setKode(ds.getKey());
                     siswaArrayList.add(s);
@@ -116,7 +116,7 @@ public class DaftarSiswa extends AppCompatActivity implements PopupMenu.OnMenuIt
                             public void onClick(DialogInterface dialog, int which) {
                                 hapusSiswa(kode);
                                 Toast.makeText(getApplicationContext(),nama+" telah dihapus",Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(getApplicationContext(),DaftarSiswa.class));
+                                startActivity(new Intent(getApplicationContext(), DaftarSiswa.class));
                             }
                         })
                 // Kondisi jika tombol tidak diklik

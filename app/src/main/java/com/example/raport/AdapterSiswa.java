@@ -42,7 +42,6 @@ public class AdapterSiswa extends BaseAdapter {
     }
 
     @Override
-    // Set tampilan dari adapter
     public View getView(int p, View v, ViewGroup vg) {
         final ViewHolder holder;
         if (v == null){
@@ -54,7 +53,6 @@ public class AdapterSiswa extends BaseAdapter {
         }else{
             holder = (ViewHolder) v.getTag();
         }
-        // Set text dari array list yang diambil
         holder.nama.setText(DaftarSiswa.siswaArrayList.get(p).getNama());
         holder.nis.setText(DaftarSiswa.siswaArrayList.get(p).getNis());
         return v;

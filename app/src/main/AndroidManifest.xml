@@ -13,36 +13,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Raport"
         tools:targetApi="31">
-        <activity
-            android:name=".Siswa"
-            android:exported="false" />
-        <activity
-            android:name=".TambahSiswa"
-            android:exported="false" />
+        <activity android:name=".MenuHasilSiswa"></activity>
+        <activity android:name=".HasilSiswa"/>
         <activity
             android:name=".MenuInputData"
-            android:exported="false" />
+            android:label="Input Data"
+            android:parentActivityName=".InputData"/>
         <activity
-            android:name=".MenuHasilSiswa"
-            android:exported="false" />
+            android:name=".InputData"
+            android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".LoginAkun"
-            android:exported="false" />
+            android:name=".TambahSiswa"
+            android:parentActivityName=".DaftarSiswa"/>
         <activity
             android:name=".EditSiswa"
-            android:exported="false" />
-        <activity
-            android:name=".EditProfil"
-            android:exported="false" />
+            android:parentActivityName=".DaftarSiswa"/>
         <activity
             android:name=".DetailSiswa"
-            android:exported="false" />
+            android:parentActivityName=".DaftarSiswa"/>
         <activity
-            android:name=".DaftarAkun"
-            android:exported="false" />
+            android:name=".DaftarSiswa"
+            android:parentActivityName=".MainActivity"/>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".EditProfil"
+            android:label="Edit Profil"
+            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".RegistrasiAkun"
+            android:label="Pendaftaran"
+            android:parentActivityName=".LoginAkun" />
+        <activity android:name=".MainActivity" />
+
+
+        <activity
+            android:name=".LoginAkun"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

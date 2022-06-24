@@ -19,7 +19,6 @@ public class TambahSiswa extends AppCompatActivity {
     EditText edNama,edKelas,edNis;
     Button btnAddSiswa;
     TextInputLayout edNamaErr,edKelasErr,edNisErr;
-    ProgressBar pb;
     DatabaseReference db;
 
     @Override
@@ -34,7 +33,6 @@ public class TambahSiswa extends AppCompatActivity {
         edNamaErr = findViewById(R.id.txNamaSErr);
         edKelasErr = findViewById(R.id.txKelasSErr);
         edNisErr = findViewById(R.id.txNISErr);
-        pb = findViewById(R.id.pbDaftarS);
         db = FirebaseDatabase.getInstance().getReference(); // Get Firebase Realtime Database
 
         btnAddSiswa.setOnClickListener(new View.OnClickListener() {
@@ -44,11 +42,9 @@ public class TambahSiswa extends AppCompatActivity {
                 nama = edNama.getText().toString();
                 kelas = edKelas.getText().toString();
                 nis = edNis.getText().toString();
-                pb.setVisibility(View.VISIBLE);
                 if (isValid()){
                     submitDataSiswa(new Siswa(nama,kelas,nis));
                 }
-                pb.setVisibility(View.GONE);
             }
         });
     }

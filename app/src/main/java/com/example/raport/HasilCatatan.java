@@ -16,12 +16,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class FragmentHasilCatatan extends Fragment {
+public class HasilCatatan extends Fragment {
 
     TextView catatan,nama;
     DatabaseReference db;
 
-    public FragmentHasilCatatan(){
+    public HasilCatatan(){
 
     }
     @Override
@@ -32,13 +32,12 @@ public class FragmentHasilCatatan extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate layout kedalam fragment
-        View v = inflater.inflate(R.layout.fragment_hasil_catatan, container, false);
+
+        View v = inflater.inflate(R.layout.activity_hasil_catatan, container, false);
         catatan = v.findViewById(R.id.hsCatatan);
         nama = v.findViewById(R.id.tv_namaS);
         nama.setText("Nama     :   " + MenuHasilSiswa.nama);
-        db = FirebaseDatabase.getInstance().getReference(); // Get Firebase Realtime Database
-        // Get data dari database
+        db = FirebaseDatabase.getInstance().getReference();
         db.child("siswa").child(MenuHasilSiswa.kode).child("nilai").child("catatan").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

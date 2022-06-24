@@ -103,18 +103,18 @@
         app:layout_constraintTop_toBottomOf="@+id/txEdEmailErr"
         app:layout_constraintVertical_bias="0.127" />
 
-    <ProgressBar
-        android:id="@+id/pbEditProfil"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:visibility="invisible"
+    <Button
+        android:id="@+id/btnDel"
+        android:layout_width="196dp"
+        android:layout_height="52dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnEdSimpan"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.127" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

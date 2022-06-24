@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class FragmentCatatan extends Fragment {
+public class InputCatatan extends Fragment {
 
     // Deklarasi variabel
     TextView namas;
@@ -28,7 +28,7 @@ public class FragmentCatatan extends Fragment {
     DatabaseReference db;
     String kodee = MenuInputData.kode;
 
-    public FragmentCatatan() { // Konstruktor FragmentCatatan
+    public InputCatatan() { // Konstruktor FragmentCatatan
     }
 
     @Override
@@ -41,8 +41,7 @@ public class FragmentCatatan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        // Inflate layout kedalam fragment
-        View v = inflater.inflate(R.layout.fragment_catatan, container, false);
+        View v = inflater.inflate(R.layout.activity_input_catatan, container, false);
         namas = v.findViewById(R.id.tv_namaS);
         txCatat = v.findViewById(R.id.txCatatan);
         FloatingActionButton fab = v.findViewById(R.id.floatingActionButton3);
@@ -74,8 +73,7 @@ public class FragmentCatatan extends Fragment {
             return v;
         }
         private void inputCatatan(Nilai n) {
-        db.child("siswa").child(kodee).child("nilai").child("catatan").removeValue(); // Menghapus data sebelumnya
-            // Memasukkan data baru
+        db.child("siswa").child(kodee).child("nilai").child("catatan").removeValue();
             db.child("siswa").child(kodee).child("nilai").child("catatan").push().setValue(n).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {

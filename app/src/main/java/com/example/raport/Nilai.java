@@ -105,7 +105,7 @@ public class Nilai implements Serializable {
 
     public Nilai(){}
 
-    public Nilai(String ipaa,String ipss,String pknn, String senbudd,String penjass,String indoo,String inggriss,String agamaa, String rataa){
+    public Nilai(String ipaa,String ipss,String pknn, String senbudd,String penjass,String indoo,String inggriss,String agamaa, String ratarata){
         ipa = ipaa;
         ips = ipss;
         pkn = pknn;
@@ -114,7 +114,7 @@ public class Nilai implements Serializable {
         indo = indoo;
         inggris = inggriss;
         agama = agamaa;
-        rata = rataa;
+        rata = ratarata;
     }
 
     public Nilai(String catat){

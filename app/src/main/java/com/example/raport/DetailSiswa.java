@@ -18,8 +18,7 @@ public class DetailSiswa extends AppCompatActivity {
         detKls = findViewById(R.id.detKelasS);
         detNIS = findViewById(R.id.detNisS);
 
-        Bundle b = getIntent().getExtras(); // Get bundle dari intent
-        // Mengambil data string dari bundle
+        Bundle b = getIntent().getExtras();
         nm = b.getString("nm");
         kls = b.getString("kls");
         nis = b.getString("nis");

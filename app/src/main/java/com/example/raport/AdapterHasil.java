@@ -6,9 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class AdapterFragmentHasil extends FragmentStateAdapter {
+public class AdapterHasil extends FragmentStateAdapter {
 
-    public AdapterFragmentHasil(@NonNull FragmentManager fragment, @NonNull Lifecycle lc) {
+    public AdapterHasil(@NonNull FragmentManager fragment, @NonNull Lifecycle lc) {
         super(fragment, lc);
     }
 
@@ -17,9 +17,9 @@ public class AdapterFragmentHasil extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position){
             case 1:
-                return new FragmentHasilCatatan();
+                return new HasilCatatan();
         }
-        return new FragmentHasilPengetahuan();
+        return new HasilNilai();
     }
 
     @Override

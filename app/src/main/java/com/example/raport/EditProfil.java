@@ -20,6 +20,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -31,8 +32,7 @@ public class EditProfil extends AppCompatActivity {
     String nm,almt,mail;
     EditText edNama,edAlamat,edEmail;
     TextInputLayout edNamaErr,edAlamatErr,edMailErr;
-    Button btSave;
-    ProgressBar pb;
+    Button btSave, btDelete;
     FirebaseFirestore fStore;
     FirebaseAuth fAuth;
 
@@ -48,18 +48,18 @@ public class EditProfil extends AppCompatActivity {
         edEmail = findViewById(R.id.txEdEmail);
         edMailErr = findViewById(R.id.txEdEmailErr);
         btSave = findViewById(R.id.btnEdSimpan);
-        pb = findViewById(R.id.pbEditProfil);
-        fStore = FirebaseFirestore.getInstance(); // Get Firebase Firestore Database
-        fAuth = FirebaseAuth.getInstance(); // Get Firebase Auth
+        btDelete = findViewById(R.id.btnDel);
+        fStore = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
+        String uid = fAuth.getCurrentUser().getUid();
 
-        //String uid = fAuth.getCurrentUser().getUid(); // Get ID dari user yang login
-        DocumentReference dref = fStore.collection("akun").document("uid");
-        dref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+        DocumentReference documentReference = fStore.collection("akun").document(uid);
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
                     DocumentSnapshot ds = task.getResult();
-                    if (ds.exists()){ // Jika data tersedia
+                    if (ds.exists()){
                         edNama.setText(ds.getString("nama"));
                         edAlamat.setText(ds.getString("alamat"));
                         edEmail.setText(ds.getString("email"));
@@ -74,26 +74,52 @@ public class EditProfil extends AppCompatActivity {
                 nm = edNama.getText().toString();
                 almt = edAlamat.getText().toString();
                 mail = edEmail.getText().toString();
-                pb.setVisibility(View.VISIBLE);
                 if (isValid()){
                     simpanData();
                     startActivity(new Intent(getApplicationContext(),MainActivity.class));
                 }
             }
         });
+
+        btDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                DocumentReference docRef x= fStore.collection("akun").document(uid);
+                Map<String,Object> del = new HashMap<>();
+
+                del.put("akun", uid);
+
+                documentReference.set(del).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        documentReference.delete();
+                        Log.d(TAG,"Akun telah dihapus! \n Nama : "+nm+"\nAlamat : "+almt+"\nEmail : "+mail+"Akun :"+uid);
+                        Toast.makeText(getApplicationContext(),"Data Telah Dihapus!",Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(getApplicationContext(), LoginAkun.class));
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d(TAG,"Kesalahan : "+e.toString());
+                        Toast.makeText(getApplicationContext(),"Data Gagal Dihapus!",Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 
     private void simpanData(){
 
-        //String uid = FirebaseAuth.getInstance().getUid();
-        DocumentReference dr = fStore.collection("akun").document("");
+        String uid = FirebaseAuth.getInstance().getUid();
+        DocumentReference documentReference = fStore.collection("akun").document(uid);
         Map<String,Object> updateAkun = new HashMap<>();
-        // Mengisi data dari string yang didapat
+
         updateAkun.put("nama",nm);
         updateAkun.put("alamat",almt);
         updateAkun.put("email",mail);
-        // Memasukkan data Map kedalam database
-        dr.set(updateAkun).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+        documentReference.set(updateAkun).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 Log.d(TAG,"Akun telah diupdate! \n Nama : "+nm+"\nAlamat : "+almt+"\nEmail : "+mail);
@@ -106,7 +132,6 @@ public class EditProfil extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Data Gagal Diubah!",Toast.LENGTH_SHORT).show();
             }
         });
-        pb.setVisibility(View.GONE);
     }
 
     // Method validasi input user

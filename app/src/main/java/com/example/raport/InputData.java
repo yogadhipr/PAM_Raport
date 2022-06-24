@@ -28,7 +28,7 @@ public class InputData extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_siswa);
+        setContentView(R.layout.activity_list_siswa);
 
         db = FirebaseDatabase.getInstance().getReference();
 
@@ -50,7 +50,7 @@ public class InputData extends AppCompatActivity {
 
         list = findViewById(R.id.listSiswa);
         siswaArrayList = new ArrayList<>();
-        // Set tampilan dari adapter yang dituju
+
         while (true) {
             AdapterSiswa la = new AdapterSiswa(this);
             adapter = la;

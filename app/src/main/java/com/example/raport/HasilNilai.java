@@ -16,11 +16,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class FragmentHasilPengetahuan extends Fragment {
+public class HasilNilai extends Fragment {
 
     TextView nama,ipa,ips,agm,senbud,penjas,pkn,indo,inggris,rata;
     DatabaseReference db;
-    public FragmentHasilPengetahuan() { // Konstruktor Fragment
+    public HasilNilai() { // Konstruktor Fragment
     }
 
     @Override
@@ -32,7 +32,7 @@ public class FragmentHasilPengetahuan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate layout kedalam fragment
-        View v = inflater.inflate(R.layout.fragment_hasil_pengetahuan, container, false);
+        View v = inflater.inflate(R.layout.activity_hasil_nilai, container, false);
         db = FirebaseDatabase.getInstance().getReference(); // Get Firebase Realtime Database
         nama = v.findViewById(R.id.tv_namaS);
         ipa = v.findViewById(R.id.hsIPA);

@@ -30,7 +30,6 @@ public class Akun implements Serializable {
                 ", nama='" + nama + '\'' +
                 '}';
     }
-
     public Akun(String mail,String name){
         nama = name;
         email = mail;

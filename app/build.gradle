@@ -1,9 +1,10 @@
 plugins {
-    id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'com.android.application'
     id 'com.google.firebase.crashlytics'
     id 'com.google.firebase.firebase-perf'
 }
+
 
 android {
     compileSdk 32
@@ -34,6 +35,13 @@ android {
 }
 
 dependencies {
+
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:30.1.0')
+    
+
+    // Also declare the dependency for the Google Play services library and specify its version
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'

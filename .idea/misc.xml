@@ -9,10 +9,19 @@
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_detail_siswa.xml" value="0.25" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_edit_profil.xml" value="0.2" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_edit_siswa.xml" value="0.10925925925925926" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_hasil_catatan.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_hasil_nilai.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_input_catatan.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_input_nilai.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_input_pengetahuan.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_list_siswa.xml" value="0.25" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_login_akun.xml" value="0.264" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_menu_hasil_siswa.xml" value="0.2" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_menu_input.xml" value="0.25" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_menu_input_data.xml" value="0.264" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_menu_siswa.xml" value="0.25" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_registrasi_akun.xml" value="0.25" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/activity_tambah_siswa.xml" value="0.264" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/card_menu_layout.xml" value="0.12082066869300911" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/daftar_siswa.xml" value="0.24895833333333334" />
@@ -22,6 +31,7 @@
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_nilai_rapot.xml" value="0.264" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/fragment_pengetahuan.xml" value="0.264" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/list_siswa.xml" value="0.12132725430597771" />
+        <entry key="..\:/Android Studio/Raport/app/src/main/res/layout/menu_layout.xml" value="0.25" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/menu/menu.xml" value="0.13425925925925927" />
         <entry key="..\:/Android Studio/Raport/app/src/main/res/menu/popup.xml" value="0.13425925925925927" />
       </map>

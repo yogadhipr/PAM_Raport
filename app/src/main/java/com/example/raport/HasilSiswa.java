@@ -29,10 +29,9 @@ public class HasilSiswa extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daftar_siswa);
+        setContentView(R.layout.activity_list_siswa);
 
-        db = FirebaseDatabase.getInstance().getReference(); // Get Firebase Realtime Database
-        // Get data dari database
+        db = FirebaseDatabase.getInstance().getReference();
         db.child("siswa").orderByChild("nama").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -50,12 +49,11 @@ public class HasilSiswa extends AppCompatActivity {
         });
         list = findViewById(R.id.listSiswa);
         siswaArrayList = new ArrayList<>();
-        // Set tampilan dari adapter yang dituju
+
         while (true) {
             AdapterSiswa la = new AdapterSiswa(this);
             adapter = la;
             list.setAdapter(la);
-            // Kondisi ketika daftar list diklik
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int p, long l) {
@@ -69,8 +67,7 @@ public class HasilSiswa extends AppCompatActivity {
                     b.putString("nama", nama);
                     b.putString("nis", nis);
                     b.putString("kd", kode);
-                    Intent i = new Intent(getApplicationContext(), MenuHasilSiswa.class); // Make Intent
-                    // Masukkan data bundle kedalam intent
+                    Intent i = new Intent(getApplicationContext(), MenuHasilSiswa.class);
                     i.putExtras(b);
                     startActivity(i);
                 }
